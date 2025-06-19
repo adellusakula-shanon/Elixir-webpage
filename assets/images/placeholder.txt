@@ -1,0 +1,143 @@
+ELIXIR WEBSITE - IMAGE PLACEHOLDER LIST
+======================================
+
+Below is a list of all required images for the Elixir Website, with a short description for each. If an image is missing, it is marked as 'MISSING'.
+
+1. hero-background.jpg (1920x1080px)
+   - Main hero section background (also used for About Us 'Our Story' background)
+   - Mediterranean landscape, olive groves, or golden hour scene
+   - High quality, professional photography
+   - Status: Present
+
+2. Hero Section Background about us.jpg (1920x1080px)
+   - About Us hero section background
+   - Status: Present
+
+3. tunisian-bar.jpg (200px height, 1920px+ width)
+   - Decorative horizontal bar
+   - Tunisian/Moroccan pattern or honeycomb design
+   - Should tile horizontally (repeat-x)
+   - Status: Present
+
+4. honey -1.jpg (600x600px)
+   - Thym Elixir (perfume bottle style)
+   - Product image
+   - Status: Present
+
+5. honey-2.jpg (600x600px)
+   - Eucalyptus Elixir (perfume bottle style)
+   - Product image
+   - Status: Present
+
+6. honey-3.jpg (600x600px)
+   - Sidr Elixir (perfume bottle style)
+   - Product image
+   - Status: Present
+
+7. product-4.jpg (600x600px)
+   - Coming Soon placeholder (perfume bottle style)
+   - Product image
+   - Status: Present
+
+8. thyme-plant.jpg (600x600px)
+   - Thyme plant/flower for honey-1 hover
+   - Status: Present
+
+9. eucalyptus-plant.jpg (600x600px)
+   - Eucalyptus plant/flower for honey-2 hover
+   - Status: Present
+
+10. sidr-plant.jpg (600x600px)
+    - Sidr plant/flower for honey-3 hover
+    - Status: Present
+
+11. oranger-plant.jpg (600x600px)
+    - Orange blossom for product-4 hover
+    - Status: Present
+
+12. hands-honey-jar.jpg (800x600px)
+    - Quality section
+    - Hands gently handling honey jar
+    - Warm, natural lighting
+    - Status: Present
+
+13. tunisian-landscape.jpg (800x600px)
+    - Heart section
+    - Scenic Tunisian landscape (mountains, fields, or coastal view)
+    - Status: Present
+
+14. featured-honey.jpg (1200x675px)
+    - Featured product section
+    - Thym Elixir in perfume bottle style
+    - Professional product photography
+    - Status: Present
+
+15. favicon.ico (32x32px)
+    - Website favicon (Elixir logo or honey drop icon)
+    - Status: MISSING
+
+ELIXIR WEBSITE - REQUIRED IMAGES
+================================
+
+Please add the following images to this folder (assets/images/):
+
+DECORATIVE ELEMENTS:
+2. tunisian-bar.jpg (200px height, 1920px+ width) - Decorative horizontal bar
+   - Tunisian/Moroccan pattern or honeycomb design
+   - Should tile horizontally (repeat-x)
+
+PRODUCT IMAGES (600x600px each):
+3. honey -1.jpg- Thym Elixir (perfume bottle style)
+4. honey-2.jpg - Eucalyptus Elixir (perfume bottle style)
+5. honey-3.jpg - Sidr Elixir (perfume bottle style)
+6. product-4.jpg - Coming Soon placeholder (perfume bottle style)
+
+PLANT IMAGES FOR HOVER EFFECTS (600x600px each):
+7. thyme-plant.jpg - Thyme plant/flower for honey-1 hover
+8. eucalyptus-plant.jpg - Eucalyptus plant/flower for honey-2 hover
+9. sidr-plant.jpg - Sidr plant/flower for honey-3 hover
+10. oranger-plant.jpg - Orange blossom for product-4 hover
+
+SECTION IMAGES:
+11. hands-honey-jar.jpg (800x600px) - Quality section
+    - Hands gently handling honey jar
+    - Warm, natural lighting
+
+12. tunisian-landscape.jpg (800x600px) - Heart section
+    - Scenic Tunisian landscape
+    - Mountains, fields, or coastal view
+
+13. featured-honey.jpg (1200x675px) - Featured product section
+    - Thym Elixir in perfume bottle style
+    - Professional product photography
+
+OPTIONAL:
+14. favicon.ico (32x32px) - Website favicon
+    - Elixir logo or honey drop icon
+
+IMAGE GUIDELINES:
+- All images should be high quality (minimum 72 DPI for web)
+- Use JPG format for photographs, PNG for graphics with transparency
+- Optimize file sizes (keep under 500KB each for faster loading)
+- Maintain consistent color palette (gold, black, natural tones)
+- Ensure professional, elegant aesthetic matching the brand
+
+CURRENT IMAGES IN FOLDER:
+- honey-1.png (1.3MB) - Already exists
+- product-1.jpg (197KB) - Already exists
+- decorative-bar.jpg (860KB) - Already exists
+- hero-bg.jpg (2.7MB) - Already exists
+- hero-background.jpg (699KB) - Already exists
+- tunisian-bar.jpg (241KB) - Already exists
+- featured-honey.jpg (215KB) - Already exists
+- honey -1.jpg (215KB) - Already exists
+- tunisian-landscape.jpg (533KB) - Already exists
+- hands-honey-jar.jpg (501KB) - Already exists
+- oranger-plant.jpg (201KB) - Already exists
+- sidr-plant.jpg (213KB) - Already exists
+- eucalyptus-plant.jpg (198KB) - Already exists
+- thyme-plant.jpg (187KB) - Already exists
+- product-4.jpg (190KB) - Already exists
+- honey-2.jpg (220KB) - Already exists
+- honey -3.jpg (251KB) - Already exists
+- product-3.png (2.0MB) - Already exists

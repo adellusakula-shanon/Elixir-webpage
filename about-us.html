@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Elixir Honey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --elixir-gold: #EABF66;
+            --elixir-text-dark: #333;
+            --elixir-text-light: #555;
+            --elixir-background-light: #F8F8F8;
+            --elixir-grid-pattern-color: #ECECEC;
+            --elixir-max-width: 1200px;
+        }
+        body {
+            font-family: 'Montserrat', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--elixir-text-dark);
+            background-color: var(--elixir-background-light);
+            overflow-x: hidden;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #fff;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .header .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--elixir-gold);
+            text-decoration: none;
+        }
+        .header .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .header .nav-links a {
+            color: var(--elixir-text-dark);
+            text-decoration: none;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 500;
+            font-size: 1em;
+            transition: color 0.3s;
+            margin-left: 2rem;
+        }
+        .header .nav-links a:hover,
+        .header .nav-links a.active {
+            color: var(--elixir-gold);
+        }
+        @media (max-width: 900px) {
+            .header > div {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header .nav-links {
+                margin-top: 10px;
+                gap: 15px;
+            }
+            .header .nav-links a {
+                margin-left: 0;
+            }
+        }
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 1rem 2rem 1rem;
+        }
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .about-text {
+            flex: 1 1 350px;
+            min-width: 280px;
+        }
+        .about-image {
+            flex: 1 1 350px;
+            min-width: 250px;
+            display: flex;
+            justify-content: center;
+        }
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            background: #eee;
+        }
+        h1, h2, h3 {
+            font-family: 'Noto Serif', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 2.5rem;
+        }
+        h2 {
+            font-size: 2rem;
+        }
+        .about-btn {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 2rem;
+            background: #e3b04b;
+            color: #fff;
+            border: none;
+            border-radius: 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .about-btn:hover {
+            background: #c99a3a;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin: 2.5rem 0 3rem 0;
+        }
+        .about-grid-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .about-grid-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            background: #eee;
+        }
+        @media (max-width: 900px) {
+            .about-section {
+                flex-direction: column;
+            }
+            .about-image, .about-text {
+                max-width: 100%;
+            }
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            .about-container {
+                padding: 1rem 0.5rem;
+            }
+        }
+        .our-story-hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 400px;
+            background-image: url('assets/images/Hero Section Background about us.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 12px;
+            position: relative;
+            margin-bottom: 80px;
+        }
+        .our-story-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.28);
+            border-radius: 12px;
+            z-index: 1;
+        }
+        .our-story-content {
+            position: relative;
+            z-index: 2;
+            flex: 1;
+            padding: 60px 60px 60px 60px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .our-story-content h1, .our-story-content p {
+            color: #fff;
+        }
+        .our-story-content .elixir-button {
+            margin-top: 30px;
+        }
+        @media (max-width: 900px) {
+            .our-story-hero {
+                flex-direction: column;
+                min-height: 320px;
+                padding: 0;
+            }
+            .our-story-content {
+                padding: 40px 20px;
+                text-align: center;
+            }
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #D4AF37;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            border: none;
+        }
+        .btn:hover {
+            background: #B8941F;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #D4AF37;
+            color: #D4AF37;
+        }
+        .btn-outline:hover {
+            background: #D4AF37;
+            color: #000000;
+        }
+        .missing-image {
+            width: 100%;
+            height: 200px;
+            background: #ffe0e0;
+            color: #b00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #b00;
+            border-radius: 8px;
+            font-size: 1.1em;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header class="header" id="header">
+        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto;">
+            <div class="logo">Elixir</div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="/about-us.html" class="active">About Us</a>
+                <a href="/shop.html">Shop</a>
+                <a href="/wellness.html">Wellness</a>
+                <a href="/contact-us.html">Contact Us</a>
+                <a href="/blog.html">Blog</a>
+            </nav>
+        </div>
+    </header>
+    <main class="about-container">
+        <!-- Our Story Section as hero background -->
+        <section class="our-story-hero">
+            <div class="our-story-content">
+                <h1>Our Story, Our Passion, Your Elixir</h1>
+                <p>Discover our heritage, our passion, and the exceptional journey of Elixir.</p>
+                <a href="/about-us.html" class="btn btn-outline">Explore Our Story</a>
+            </div>
+        </section>
+       
+
+        <!-- Rooted in Tradition Section -->
+        <section class="about-section">
+            <div class="about-text">
+                <h2>Rooted in Tradition, Crafted with Passion.</h2>
+                <p>For generations, the art of beekeeping has thrived in Tunisia's sun-drenched lands. Adami Apiculture was born from a desire to share this golden heritage, selecting the finest nectars and crafting Elixir with unwavering dedication to quality and authenticity.</p>
+            </div>
+            <div class="about-image">
+                <img src="assets/images/A_photograph_captures_an_elderly_beekeeper_during_.jpg" alt="Old Beekeeper Roots in Tradition">
+            </div>
+        </section>
+
+        <!-- Taste of Tunisia Section -->
+        <section class="about-section">
+            <div class="about-text">
+                <h2>A Taste of Tunisia's Unique Landscapes</h2>
+                <p>From wild thyme to fragrant eucalyptus, each Elixir variety captures the distinct flavors and benefits of Tunisia's diverse flora.</p>
+            </div>
+            <div class="about-image">
+                <img src="assets/images/tunisian-landscape.jpg" alt="Taste of Tunisia Diverse Flora">
+            </div>
+        </section>
+
+        <!-- Purity, Passion, Exceptional Quality Section -->
+        <section>
+            <h2 style="text-align:center; margin-bottom:2rem;">Purity, Passion, Exceptional Quality</h2>
+            <div class="about-grid">
+                <div class="about-grid-item">
+                    <img src="assets/images/featured-honey.jpg" alt="Authentic & Pure Mediterranean Honey">
+                    <div>Authentic & Pure Mediterranean Honey.</div>
+                </div>
+                <div class="about-grid-item">
+                    <img src="assets/images/honey -1.jpg" alt="Crafted with Traditional Methods">
+                    <div>Crafted with Traditional Methods</div>
+                </div>
+                <div class="about-grid-item">
+                    <img src="assets/images/eucalyptus-plant.jpg" alt="A Commitment to Sustainability">
+                    <div>A Commitment to Sustainability</div>
+                </div>
+                <div class="about-grid-item">
+                    <img src="assets/images/oranger-plant.jpg" alt="An Exquisite & Beneficial Experience">
+                    <div>An Exquisite & Beneficial Experience</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- More Than Honey Section -->
+        <section class="about-section">
+            <div class="about-text">
+                <h2>More Than Honey, An Elixir of Well-being.</h2>
+                <p>Beyond its exceptional taste, it's a natural 'alicament,' rich in benefits and presented with unparalleled elegance. Experience the art of honey, elevated.</p>
+            </div>
+            <div class="about-image">
+                <img src="assets/images/featured-honey.jpg" alt="More Than Honey Lifestyle Appeal">
+            </div>
+        </section>
+    </main>
+</body>
+</html> 

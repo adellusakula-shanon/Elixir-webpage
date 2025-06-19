@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elixir - The Mediterranean's Liquid Gold</title>
+    <meta name="description" content="Discover Elixir, the premium Tunisian honey brand. Experience the unparalleled taste and purity of Mediterranean honey, crafted with passion and presented with elegance.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-links a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            margin-left: 2rem;
+        }
+        
+        .nav-links a:hover {
+            color: #D4AF37;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #D4AF37;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            background-image: url('assets/images/hero-background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            animation: heroBackground 60s infinite ease-in-out;
+        }
+        
+        @keyframes heroBackground {
+            0%, 100% { background-size: 100%; }
+            50% { background-size: 102%; }
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            color: white;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #D4AF37;
+            color: #000000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn:hover {
+            background: #B8941F;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #D4AF37;
+            color: #D4AF37;
+        }
+        
+        .btn-outline:hover {
+            background: #D4AF37;
+            color: #000000;
+        }
+        
+        /* Section Styles */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #666;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Decorative Bar */
+        .elixir-decorative-bar {
+            height: 150px;
+            width: 100%;
+            background-image: url('../assets/images/tunisian-bar.jpg?v=2');
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            margin: 40px 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .elixir-decorative-bar.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-card:hover .product-image::before {
+            opacity: 1;
+        }
+        
+        .product-1 .product-image {
+            background-image: url('assets/images/honey -1.jpg');
+        }
+        
+        .product-1 .product-image::before {
+            background-image: url('assets/images/thyme-plant.jpg');
+        }
+        
+        .product-2 .product-image {
+            background-image: url('assets/images/honey-2.jpg?v=1');
+        }
+        
+        .product-2 .product-image::before {
+            background-image: url('assets/images/eucalyptus-plant.jpg');
+        }
+        
+        .product-3 .product-image {
+            background-image: url('assets/images/honey -3.jpg');
+        }
+        
+        .product-3 .product-image::before {
+            background-image: url('assets/images/sidr-plant.jpg');
+        }
+        
+        .product-4 .product-image {
+            background-image: url('assets/images/product-4.jpg');
+        }
+        
+        .product-4 .product-image::before {
+            background-image: url('assets/images/oranger-plant.jpg');
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #000000;
+        }
+        
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+        
+        .column-image {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+        }
+        
+        .column-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #000000;
+        }
+        
+        .column-text p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        .column-text ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .column-text li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .column-text li::before {
+            content: '•';
+            color: #D4AF37;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .highlight {
+            font-weight: 600;
+            color: #D4AF37;
+        }
+        
+        /* Wellness Section */
+        .wellness-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+        
+        .wellness-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(248, 248, 248, 0.5);
+            border-radius: 8px;
+        }
+        
+        .wellness-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: #D4AF37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, #F8F8F8 0%, #D3D3D3 100%);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 2rem auto 0;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #D3D3D3;
+            border-radius: 4px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .newsletter-input:focus {
+            border-color: #D4AF37;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #000000;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: #D4AF37;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #D4AF37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .wellness-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .section {
+                padding: 3rem 1rem;
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .btn {
+                display: block;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto;">
+            <div class="logo">Elixir</div>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="about-us.html" class="active">About Us</a>
+                <a href="#shop">Shop</a>
+                <a href="#wellness">Wellness</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#blog">Blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Elixir: The Mediterranean's Liquid Gold</h1>
+            <p class="hero-subtitle">A Symphony of Senses. A Statement of Style</p>
+            <div>
+                <a href="#discover" class="btn btn-outline">Discover Elixir</a>
+                <a href="#shop" class="btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="about">
+        <h2 class="section-title">Elixir: More Than Honey, An Experience</h2>
+        <p class="section-subtitle">
+            Elixir is a rare and exceptional honey, born from the sun-drenched lands of Tunisia. It's a journey for the senses, a celebration of Mediterranean heritage, and a gift of pure well-being. Crafted with passion and presented with elegance, Elixir redefines the very notion of honey.
+        </p>
+    </section>
+
+    <!-- Collection Section -->
+    <section class="section" id="shop">
+        <h2 class="section-title">Explore Our Full Collection</h2>
+        <p class="section-subtitle">
+            Discover the full range of Elixir's rare and exquisite honey varieties. Each one a unique expression of the Mediterranean terroir.
+        </p>
+        <div class="product-grid">
+            <div class="product-card product-1">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Thym Elixir</h3>
+                    <p class="product-description">A robust and aromatic honey, capturing the wild essence of the Tunisian thyme fields.</p>
+                </div>
+            </div>
+            <div class="product-card product-2">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Eucalyptus Elixir</h3>
+                    <p class="product-description">Infused with the essence of citrus blossoms, a refreshing and zesty flavor.</p>
+                </div>
+            </div>
+            <div class="product-card product-3">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Sidr Elixir</h3>
+                    <p class="product-description">Rich and caramel-like, harvested from date palm groves.</p>
+                </div>
+            </div>
+            <div class="product-card product-4">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <h3 class="product-title">Coming Soon</h3>
+                    <p class="product-description">New varieties are being crafted with the same passion and dedication.</p>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="#shop" class="btn">Shop</a>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+    <section class="section">
+        <h2 class="section-title">Unrivaled Quality and Purpose</h2>
+        <p class="section-subtitle">Elixir stands apart from ordinary honey. We offer:</p>
+        <div class="two-column">
+            <div class="column-image" style="background-image: url('assets/images/hands-honey-jar.jpg');"></div>
+            <div class="column-text">
+                <ul>
+                    <li><span class="highlight">Alicament:</span> More than a delicacy, Elixir is a natural elixir, rich in therapeutic properties.</li>
+                    <li><span class="highlight">Terroir:</span> Each variety is a pure expression of its unique Mediterranean origin, capturing the essence of the land and its flora.</li>
+                    <li><span class="highlight">Rarity:</span> Limited harvests ensure exclusivity and exceptional quality.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heart Section -->
+    <section class="section">
+        <h2 class="section-title">Discover the Heart of Elixir</h2>
+        <div class="two-column">
+            <div class="column-text">
+                <p>From the ancient traditions of Tunisian beekeeping to our unwavering commitment to quality, the Elixir story is one of passion, heritage, and a deep respect for nature. Learn more about our journey.</p>
+                <a href="about-us.html" class="btn">Discover more</a>
+            </div>
+            <div class="column-image" style="background-image: url('assets/images/tunisian-landscape.jpg');"></div>
+        </div>
+    </section>
+
+    <!-- Taste Section -->
+    <section class="section">
+        <h2 class="section-title">Experience the Taste of the Mediterranean</h2>
+        <div class="two-column">
+            <div class="column-image" style="background-image: url('assets/images/featured-honey.jpg');"></div>
+            <div class="column-text">
+                <h3>Thym Elixir</h3>
+                <p>A robust and aromatic honey, capturing the wild essence of the Tunisian thyme fields. Known for its powerful antioxidant and antibacterial properties.</p>
+                <a href="#shop" class="btn">Add to cart</a>
+            </div>
+        </div>
+        <div style="margin-top: 4rem;">
+            <div class="two-column">
+                <div class="column-text">
+                    <h3>The Mediterranean Heart</h3>
+                    <p>Tunisia, a land of ancient civilizations and breathtaking landscapes, is the cradle of Elixir. Here, beekeeping is not just a practice, but a heritage passed down through generations. Our honey is a testament to this deep connection between people, nature, and time.</p>
+                </div>
+                <div class="column-text">
+                    <h3>A Symphony of Flavors, Crafted by Nature</h3>
+                    <p>The unique flora of Tunisia, from the wild thyme of the mountains to the fragrant eucalyptus forests, gives Elixir its distinctive character. Each variety captures the essence of its source, offering a sensory journey through the Mediterranean.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wellness Section -->
+    <section class="section" id="wellness">
+        <h2 class="section-title">Elixir's Wellness Power</h2>
+        <div class="wellness-grid">
+            <div class="wellness-card">
+                <div class="wellness-icon">🌿</div>
+                <h3>Honey as Medicine, Honey as Pleasure</h3>
+                <p>For centuries, honey has been revered for its therapeutic properties. Elixir takes this tradition to a new level, offering a luxurious 'alicament' – a food that nourishes both body and soul. Discover the power of nature's remedy.</p>
+            </div>
+            <div class="wellness-card">
+                <div class="wellness-icon">💚</div>
+                <h3>The Gift of Well-being, in Every Drop</h3>
+                <p>Elixir is rich in antioxidants, possesses antibacterial properties, and offers a range of other health benefits. Explore how Elixir can enhance your well-being.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section" id="contact">
+        <h2 class="section-title">Stay Connected</h2>
+        <p class="section-subtitle">Join the Elixir Community</p>
+        <p style="margin-bottom: 2rem;">Stay informed about new varieties, exclusive offers, and the latest news from Elixir.</p>
+        <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Email address*" required>
+            <button type="submit" class="btn">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms & Conditions</a>
+                <a href="#shipping">Shipping Info</a>
+                <a href="#returns">Returns</a>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-icon">📷</a>
+                <a href="#" class="social-icon">📘</a>
+                <a href="#" class="social-icon">🐦</a>
+            </div>
+            <p>&copy; 2024 Elixir. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Decorative bar animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        const decorativeBar = document.getElementById('decorative-bar');
+        if (decorativeBar) {
+            observer.observe(decorativeBar);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Newsletter form submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                alert('Thank you for subscribing to Elixir!');
+                this.reset();
+            });
+        }
+    </script>
+  </body>
+</html> 
